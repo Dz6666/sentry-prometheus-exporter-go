@@ -31,7 +31,14 @@ func main() {
 	//fmt.Printf("Sentry Data:\n%v\n", data)
 
 	// 初始化 Sentry Collector
-	colle1 := collector.NewSentryCollector(sentryAPI, config.SentryExporterOrgSlug, []string{config.SentryExporterProjects},
+	var projects []string
+	if config.SentryExporterProjects == "" {
+		projects = []string{}
+	} else {
+		projects = []string{config.SentryExporterProjects}
+	}
+
+	colle1 := collector.NewSentryCollector(sentryAPI, config.SentryExporterOrgSlug, projects,
 		[]bool{config.SentryIssueMetrics,
 			config.SentryEventsMetrics,
 			config.SentryRateLimitMetrics,

@@ -43,9 +43,9 @@ func init() {
 	if SentryExporterOrgSlug == "" {
 		log.Fatalf("Error: SENTRY_EXPORTER_ORG_SLUG environment variable is not set.")
 	}
-	if SentryExporterProjects == "" {
-		log.Fatalf("Warning: SENTRY_EXPORTER_PROJECTS environment variable is not set.")
-	}
+	//if SentryExporterProjects == "" {
+	//	log.Fatalf("Warning: SENTRY_EXPORTER_PROJECTS environment variable is not set.")
+	//}
 	if !SentryRateLimitMetrics {
 		SentryRateLimitMetrics = true
 		log.Printf("Warning: SENTRY_RATE_LIMIT_METRICS is set to false. Rate limit metrics will not be collected.")
